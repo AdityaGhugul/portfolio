@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Ghugul — API Integration Engineer</title>
+<meta name="description" content="API Integration Engineer at TCS. Axway API Gateway 7.7, OAuth2, mTLS. 100M+ API requests/day. NMBS/SNCB Belgian Railways. 83% latency reduction.">
+<meta property="og:title" content="Aditya Ghugul — API Integration Engineer">
+<meta property="og:description" content="Axway APIM · OAuth2 · mTLS · 100M+ req/day · TCS · Belgian Railways · Nagpur, India">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+<style>
+:root{
+  --bg:#09090f;--bg2:#0f1018;--bg3:#14151f;--bg4:#1a1c28;
+  --border:#1f2133;--border2:#272a40;
+  --teal:#2dd4bf;--teal-dim:rgba(45,212,191,.1);--teal-glow:rgba(45,212,191,.05);
+  --amber:#f59e0b;--amber-dim:rgba(245,158,11,.1);
+  --red:#f87171;--blue:#60a5fa;--green:#4ade80;--purple:#a78bfa;
+  --text:#eceef5;--text2:#8b8fa8;--text3:#3f4258;
+  --mono:'JetBrains Mono',monospace;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Syne',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--serif);line-height:1.7;font-size:16px;overflow-x:hidden}
+
+.cursor{width:6px;height:6px;background:var(--teal);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform .15s;mix-blend-mode:screen}
+
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2.5rem;background:rgba(9,9,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px}
+.nav-logo{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--teal);text-decoration:none;letter-spacing:.04em}
+.nav-logo span{color:var(--text3)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--text2);text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--bg);background:var(--teal);padding:6px 16px;border-radius:4px;text-decoration:none;transition:opacity .2s;letter-spacing:.03em}
+.nav-cta:hover{opacity:.85}
+
+/* GRID BG */
+.hero-bg{position:fixed;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:80px 80px;opacity:.2;pointer-events:none;z-index:0}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;max-width:1100px;margin:0 auto;padding:7rem 2.5rem 4rem;position:relative}
+.hero-glow{position:absolute;top:-80px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(45,212,191,.05) 0%,transparent 65%);pointer-events:none}
+.hero-left{position:relative;z-index:1}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--teal);background:var(--teal-dim);border:1px solid rgba(45,212,191,.2);border-radius:4px;padding:4px 12px;margin-bottom:1.75rem;letter-spacing:.06em;animation:fadeUp .6s ease both}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+
+h1{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4rem);font-weight:400;line-height:1.1;margin-bottom:.5rem;animation:fadeUp .6s .1s ease both}
+h1 em{font-style:italic;color:var(--teal)}
+.hero-role{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp .6s .2s ease both}
+.hero-desc{font-size:1.02rem;color:var(--text2);max-width:480px;margin-bottom:2rem;font-style:italic;animation:fadeUp .6s .3s ease both;line-height:1.8}
+.hero-desc strong{color:var(--text);font-style:normal}
+
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:2.5rem;animation:fadeUp .6s .4s ease both}
+.tag{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:4px;border:1px solid var(--border2);color:var(--text2);background:var(--bg3);transition:all .2s;white-space:nowrap}
+.tag:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-dim)}
+.tag.hi{border-color:rgba(45,212,191,.25);color:var(--teal);background:var(--teal-dim)}
+.tag.learning{border-color:rgba(245,158,11,.2);color:var(--amber);background:var(--amber-dim);font-size:10px}
+
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .6s .5s ease both}
+.btn-p{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:11px 22px;border-radius:5px;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.btn-solid{background:var(--teal);color:#000}
+.btn-solid:hover{background:#38e5d0;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border2)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+
+.loc-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:1.5rem}
+.loc-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+
+/* HERO RIGHT */
+.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px;animation:fadeUp .6s .3s ease both}
+
+.li-badge-wrap{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:20px;overflow:hidden;position:relative}
+.li-badge-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#0077b5,#00a0dc)}
+.li-fallback{display:flex;align-items:center;gap:14px}
+.li-avatar{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--amber));display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:800;font-size:18px;color:#000;flex-shrink:0}
+.li-name{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--text)}
+.li-title{font-size:12px;color:var(--text2);margin-top:2px;line-height:1.5}
+.li-company{font-family:var(--mono);font-size:11px;color:var(--teal);margin-top:3px}
+.li-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:var(--sans);font-size:11px;font-weight:700;color:#0077b5;text-decoration:none;background:rgba(0,119,181,.1);border:1px solid rgba(0,119,181,.3);border-radius:4px;padding:5px 12px;transition:all .2s;letter-spacing:.03em}
+.li-link:hover{background:rgba(0,119,181,.2)}
+.li-link svg{width:14px;height:14px;fill:currentColor}
+
+/* METRIC CARDS */
+.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.metric-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:15px 16px;transition:border-color .2s;position:relative;overflow:hidden}
+.metric-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-glow),transparent);opacity:0;transition:opacity .3s}
+.metric-card:hover{border-color:var(--border2)}
+.metric-card:hover::after{opacity:1}
+.metric-n{font-family:var(--sans);font-weight:800;font-size:1.5rem;line-height:1}
+.metric-n.teal{color:var(--teal)}
+.metric-n.amber{color:var(--amber)}
+.metric-n.blue{color:var(--blue)}
+.metric-n.green{color:var(--green)}
+.metric-l{font-size:10px;color:var(--text3);margin-top:4px;font-family:var(--sans);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2) 30%,var(--border2) 70%,transparent)}
+
+/* SECTIONS */
+section{padding:5rem 2.5rem;position:relative;z-index:1}
+.container{max-width:1100px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+.sec-label::before{content:'//';color:var(--text3)}
+.sec-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;line-height:1.15;margin-bottom:1rem}
+.sec-title em{color:var(--teal);font-style:italic}
+.sec-sub{font-size:13px;color:var(--text2);max-width:600px;margin-bottom:2.5rem;font-style:italic;line-height:1.7}
+
+/* IMPACT BANNER */
+.impact-banner{background:var(--bg3);border:1px solid var(--border2);border-radius:14px;padding:1.5rem 2rem;margin-bottom:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;position:relative;overflow:hidden}
+.impact-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--amber),var(--blue))}
+.impact-item{}
+.impact-n{font-family:var(--sans);font-weight:800;font-size:2rem;line-height:1}
+.impact-n.teal{color:var(--teal)}
+.impact-n.amber{color:var(--amber)}
+.impact-n.green{color:var(--green)}
+.impact-n.blue{color:var(--blue)}
+.impact-l{font-size:11px;color:var(--text3);font-family:var(--sans);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:3px}
+.impact-desc{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.4}
+
+/* SKILLS */
+#skills{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:2rem}
+.skill-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px 22px;transition:all .25s;position:relative;overflow:hidden}
+.skill-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-glow),transparent);opacity:0;transition:opacity .3s}
+.skill-card:hover{border-color:rgba(45,212,191,.2);transform:translateY(-2px)}
+.skill-card:hover::after{opacity:1}
+.skill-icon{font-size:1.3rem;margin-bottom:10px}
+.skill-title{font-family:var(--sans);font-weight:700;font-size:13px;color:var(--text);margin-bottom:6px}
+.skill-desc{font-size:11px;color:var(--text2);line-height:1.6;margin-bottom:10px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:5px}
+.skill-tag{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:3px;background:var(--bg4);color:var(--text3);border:1px solid var(--border)}
+
+/* EXPERIENCE */
+#experience{background:var(--bg)}
+.exp-timeline{margin-top:2rem;position:relative}
+.exp-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--teal),rgba(45,212,191,.1))}
+.exp-item{padding-left:2rem;margin-bottom:2.5rem;position:relative}
+.exp-item::before{content:'';position:absolute;left:-4px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px rgba(45,212,191,.5)}
+.exp-item.past::before{background:var(--text3);box-shadow:none}
+.exp-period{font-family:var(--mono);font-size:11px;color:var(--teal);margin-bottom:4px;letter-spacing:.04em}
+.exp-item.past .exp-period{color:var(--text3)}
+.exp-role{font-family:var(--sans);font-weight:700;font-size:16px;color:var(--text);margin-bottom:2px}
+.exp-company{font-size:13px;color:var(--text2);margin-bottom:4px;font-style:italic}
+.exp-project{font-family:var(--mono);font-size:11px;color:var(--teal);margin-bottom:12px;background:var(--teal-dim);border:1px solid rgba(45,212,191,.15);border-radius:4px;padding:3px 10px;display:inline-block}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:6px}
+.exp-points li{font-size:13px;color:var(--text2);padding-left:1.1rem;position:relative;line-height:1.65}
+.exp-points li::before{content:'→';position:absolute;left:0;color:var(--teal);font-style:normal}
+.exp-points li strong{color:var(--text);font-weight:600}
+.exp-item.past .exp-points li::before{color:var(--text3)}
+
+/* PROJECT HIGHLIGHT CARD */
+.project-card{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:1.5rem 1.75rem;margin-top:2.5rem;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--teal),var(--amber))}
+.project-label{font-family:var(--mono);font-size:10px;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.project-title{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--text);margin-bottom:6px}
+.project-desc{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:12px;font-style:italic}
+.project-metrics{display:flex;flex-wrap:wrap;gap:10px}
+.pm{font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:4px;background:var(--bg3);border:1px solid var(--border);color:var(--text2)}
+.pm span{color:var(--teal);font-weight:500}
+
+/* GUIDE TEASER */
+#guide{background:var(--bg2)}
+.guide-card{background:var(--bg3);border:1px solid var(--border2);border-radius:16px;padding:2.5rem;position:relative;overflow:hidden;margin-top:1.5rem}
+.guide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--amber),var(--blue))}
+.guide-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(245,158,11,.25);border-radius:4px;padding:4px 10px;margin-bottom:1.25rem;letter-spacing:.06em}
+.guide-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--amber);animation:pulse 1.5s infinite}
+.guide-title{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2rem);color:var(--text);margin-bottom:.75rem;line-height:1.2}
+.guide-title em{color:var(--teal);font-style:italic}
+.guide-desc{font-size:.95rem;color:var(--text2);max-width:560px;margin-bottom:1.75rem;line-height:1.8;font-style:italic}
+.guide-stats{display:flex;flex-wrap:wrap;gap:2rem;margin-bottom:1.75rem}
+.gs-n{font-family:var(--sans);font-weight:800;font-size:1.8rem;color:var(--teal);line-height:1}
+.gs-l{font-size:10px;color:var(--text3);font-family:var(--sans);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-top:3px}
+.guide-coming{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--text3);background:var(--bg4);border:1px solid var(--border2);border-radius:4px;padding:7px 14px}
+.coming-dot{width:5px;height:5px;border-radius:50%;background:var(--amber);animation:pulse 1.5s infinite}
+.guide-deco{position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.04),transparent 70%);pointer-events:none}
+
+/* CONTACT */
+#contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2rem}
+.contact-text{font-size:1rem;color:var(--text2);line-height:1.85;font-style:italic}
+.contact-text strong{color:var(--text);font-style:normal}
+.contact-links{display:flex;flex-direction:column;gap:10px}
+.contact-link{display:flex;align-items:center;gap:14px;padding:13px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all .2s}
+.contact-link:hover{border-color:var(--teal);transform:translateX(4px)}
+.cl-icon{width:34px;height:34px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cl-label{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3)}
+.cl-value{font-family:var(--mono);font-size:11px;color:var(--text);margin-top:1px}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem 2.5rem;position:relative;z-index:1}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-left{font-family:var(--mono);font-size:11px;color:var(--text3);line-height:1.6}
+.footer-left span{color:var(--teal)}
+.footer-right{display:flex;gap:1.5rem}
+.footer-right a{font-family:var(--sans);font-size:11px;font-weight:600;color:var(--text3);text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.footer-right a:hover{color:var(--teal)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  #hero{grid-template-columns:1fr;gap:2.5rem;padding:6rem 1.5rem 3rem}
+  .hero-glow{display:none}
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  section{padding:3.5rem 1.5rem}
+  .contact-grid{grid-template-columns:1fr}
+  .impact-banner{grid-template-columns:1fr 1fr}
+  .guide-card{padding:1.75rem}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="hero-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">ag<span>.</span>dev</a>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#guide">Guide</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://in.linkedin.com/in/aditya-ghugul-34a541100" target="_blank">Open to Work</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-glow"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      Available for new opportunities
+    </div>
+
+    <h1>Aditya<br><em>Ghugul</em></h1>
+    <div class="hero-role">API Integration Engineer &nbsp;·&nbsp; Axway APIM Specialist</div>
+
+    <p class="hero-desc">
+      Building the invisible infrastructure that keeps enterprise systems talking —
+      <strong>OAuth2 flows, mTLS policies, Groovy-scripted transformations</strong>
+      running at 100 million requests a day for Belgian Railways.
+    </p>
+
+    <div class="hero-tags">
+      <span class="tag hi">Axway API Gateway 7.7</span>
+      <span class="tag hi">OAuth 2.0</span>
+      <span class="tag hi">mTLS</span>
+      <span class="tag hi">JWT</span>
+      <span class="tag">REST / SOAP</span>
+      <span class="tag">Groovy / JS</span>
+      <span class="tag">ELK Stack</span>
+      <span class="tag">Jenkins / Git</span>
+      <span class="tag">OpenAPI</span>
+      <span class="tag">Rate Limiting</span>
+      <span class="tag learning">☁️ Azure APIM — learning</span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-p btn-solid">Get In Touch</a>
+      <a href="#experience" class="btn-p btn-ghost">See Experience ↓</a>
+    </div>
+
+    <div class="loc-badge">
+      <span class="loc-dot"></span>
+      Nagpur, Maharashtra, India
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- LinkedIn Badge -->
+    <div class="li-badge-wrap">
+      <div class="badge-base LI-profile-badge"
+           data-locale="en_US"
+           data-size="medium"
+           data-theme="dark"
+           data-type="VERTICAL"
+           data-vanity="aditya-ghugul-34a541100"
+           data-version="v1">
+        <div class="li-fallback" id="li-fallback">
+          <div class="li-avatar">AG</div>
+          <div>
+            <div class="li-name">Aditya Ghugul</div>
+            <div class="li-title">API Integration Engineer · Axway API Gateway 7.7<br>OAuth2 · mTLS · 100M+ req/day</div>
+            <div class="li-company">Tata Consultancy Services</div>
+          </div>
+        </div>
+        <a class="badge-base__link LI-simple-link"
+           href="https://in.linkedin.com/in/aditya-ghugul-34a541100?trk=profile-badge"
+           target="_blank">Aditya Ghugul</a>
+      </div>
+      <a href="https://in.linkedin.com/in/aditya-ghugul-34a541100" target="_blank" class="li-link">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        View LinkedIn Profile
+      </a>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="metric-row">
+      <div class="metric-card">
+        <div class="metric-n teal">83<span style="font-size:1rem">%</span></div>
+        <div class="metric-l">Latency Reduced</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-n amber">100M<span style="font-size:.9rem">+</span></div>
+        <div class="metric-l">Requests / Day</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-n green">50<span style="font-size:1rem">%</span></div>
+        <div class="metric-l">Incidents Reduced</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-n blue">3</div>
+        <div class="metric-l">Go-Lives Delivered</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-label reveal">Core Expertise</div>
+    <h2 class="sec-title reveal">What I <em>actually build</em></h2>
+    <p class="sec-sub reveal">Five years of hands-on integration work — three of them deep in Axway, designing policies that run in production every day.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔐</div>
+        <div class="skill-title">API Security & Authentication</div>
+        <div class="skill-desc">Implementing auth flows that protect APIs at scale — from OAuth2 token lifecycle management to mutual certificate authentication.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">OAuth 2.0</span>
+          <span class="skill-tag">JWT / JWKS</span>
+          <span class="skill-tag">mTLS</span>
+          <span class="skill-tag">SSL / Certs</span>
+          <span class="skill-tag">API Key Validation</span>
+          <span class="skill-tag">Token Caching</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-title">Axway API Gateway 7.7</div>
+        <div class="skill-desc">3 years of production Axway experience — writing custom policies, managing topologies, debugging live traffic, and owning end-to-end partner integrations.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Policy Studio</span>
+          <span class="skill-tag">Groovy Scripting</span>
+          <span class="skill-tag">JavaScript Filters</span>
+          <span class="skill-tag">KPS</span>
+          <span class="skill-tag">Fault Handlers</span>
+          <span class="skill-tag">Traffic Monitor</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔄</div>
+        <div class="skill-title">Integration & Mediation</div>
+        <div class="skill-desc">Designing transformation pipelines and routing policies that bridge REST, SOAP, and partner-specific protocols reliably at scale.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">REST / SOAP</span>
+          <span class="skill-tag">WSDL / OpenAPI</span>
+          <span class="skill-tag">JSON / XML</span>
+          <span class="skill-tag">XSLT</span>
+          <span class="skill-tag">Content Routing</span>
+          <span class="skill-tag">Protocol Bridge</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">📊</div>
+        <div class="skill-title">Performance & Optimisation</div>
+        <div class="skill-desc">Tuning gateway performance through intelligent caching, rate limiting, and policy optimisation — achieving measurable latency reductions in production.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Response Caching</span>
+          <span class="skill-tag">Token Caching</span>
+          <span class="skill-tag">Rate Limiting</span>
+          <span class="skill-tag">Throttling</span>
+          <span class="skill-tag">Load Optimisation</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔭</div>
+        <div class="skill-title">Monitoring & Observability</div>
+        <div class="skill-desc">Building visibility into API behaviour through ELK Stack integration, gateway analytics, and structured incident management workflows.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ELK Stack</span>
+          <span class="skill-tag">Elasticsearch</span>
+          <span class="skill-tag">Kibana</span>
+          <span class="skill-tag">Logstash</span>
+          <span class="skill-tag">Gateway Analytics</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-icon">🛠️</div>
+        <div class="skill-title">DevOps & Tooling</div>
+        <div class="skill-desc">Integrating gateway deployments into CI/CD pipelines and maintaining test coverage for API behaviour through automation.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Postman / Newman</span>
+          <span class="skill-tag">Selenium / Java</span>
+          <span class="skill-tag">Agile / Scrum</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="sec-label reveal">Experience</div>
+    <h2 class="sec-title reveal">Where the <em>real work</em> happened</h2>
+
+    <!-- Impact banner - real numbers from CV -->
+    <div class="impact-banner reveal">
+      <div class="impact-item">
+        <div class="impact-n teal">83%</div>
+        <div class="impact-l">Latency Reduction</div>
+        <div class="impact-desc">300ms → under 50ms via intelligent response caching on ticket pricing APIs</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-n amber">100M+</div>
+        <div class="impact-l">Requests / Day</div>
+        <div class="impact-desc">Gateway traffic managed with SLA compliance and high availability</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-n green">50%</div>
+        <div class="impact-l">Incident Reduction</div>
+        <div class="impact-desc">Over 2 years through policy hardening and proactive ELK monitoring</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-n blue">~90%</div>
+        <div class="impact-l">Owned Independently</div>
+        <div class="impact-desc">Of a major premium partner integration across 3 successful go-lives</div>
+      </div>
+    </div>
+
+    <div class="exp-timeline">
+
+      <!-- TCS -->
+      <div class="exp-item reveal">
+        <div class="exp-period">July 2023 — Present</div>
+        <div class="exp-role">System Engineer — API Integration Engineer</div>
+        <div class="exp-company">Tata Consultancy Services · Nagpur, India</div>
+        <div class="exp-project">Project: NMBS/SNCB — Belgian National Railways</div>
+        <ul class="exp-points">
+          <li>Led end-to-end onboarding of a <strong>major premium partner integration from scratch</strong> — a high-complexity multi-phase project delivered across <strong>3 successful go-lives over 2 years</strong>, with ~90% of implementation owned independently</li>
+          <li>Reduced API response latency by <strong>over 83%</strong> (from ~300ms to under 50ms) by implementing intelligent response caching for shared ticket pricing data, significantly reducing downstream load</li>
+          <li>Implemented <strong>OAuth2 token caching</strong> aligned to a 30-minute session lifecycle, eliminating redundant auth-server round-trips and improving overall system throughput</li>
+          <li>Contributed to a <strong>50% reduction in production incidents</strong> over 2 years through robust policy hardening, structured error handling, and proactive ELK-based monitoring</li>
+          <li>Designed and developed <strong>4–8 enterprise partner and vendor API integrations</strong> on Axway API Gateway 7.7, writing custom Groovy and JavaScript policies for routing, transformation, and partner-specific validation</li>
+          <li>Implemented security policies including <strong>OAuth2 auth flows, SSL/mTLS mutual authentication</strong>, API key validation, and end-to-end certificate lifecycle management</li>
+          <li>Managed gateway traffic of approximately <strong>100 million requests per day</strong>; configured rate limiting, throttling, and caching policies to ensure SLA compliance and high availability</li>
+          <li>Supported CI/CD deployments using <strong>Jenkins pipelines and Git-based workflows</strong>; investigated incidents using ELK Stack (Elasticsearch, Logstash, Kibana)</li>
+        </ul>
+
+        <!-- Project spotlight -->
+        <div class="project-card">
+          <div class="project-label">Project Spotlight</div>
+          <div class="project-title">NMBS / SNCB — Belgian National Railways Partner Ecosystem</div>
+          <div class="project-desc">API integrations for the partner and vendor ecosystem of one of Europe's major national rail operators — building the gateway policies that connect external partners to core railway services.</div>
+          <div class="project-metrics">
+            <span class="pm">Latency: <span>300ms → &lt;50ms</span></span>
+            <span class="pm">Traffic: <span>100M+ req/day</span></span>
+            <span class="pm">Go-lives: <span>3 delivered</span></span>
+            <span class="pm">Incidents: <span>↓ 50% over 2yr</span></span>
+            <span class="pm">Platform: <span>Axway 7.7</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cybage -->
+      <div class="exp-item past reveal">
+        <div class="exp-period">November 2020 — June 2023</div>
+        <div class="exp-role">QA Automation Engineer</div>
+        <div class="exp-company">Cybage Software · Pune, India</div>
+        <ul class="exp-points">
+          <li>Designed and automated end-to-end regression test suites using <strong>Selenium with Java</strong>, improving release stability across multiple product lines</li>
+          <li>Built <strong>API automation test suites using Postman and Newman</strong>, validating REST endpoint behaviour, response schemas, and error handling</li>
+          <li>Participated in requirement analysis, defect triage, and root cause analysis — bridging QA and development teams during release cycles</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Education subtle row -->
+    <div style="margin-top:1rem;padding:14px 18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;display:flex;flex-wrap:wrap;gap:2rem" class="reveal">
+      <div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px">Education</div>
+        <div style="font-family:var(--sans);font-weight:600;font-size:13px;color:var(--text)">PG-DAC — Advanced Computing</div>
+        <div style="font-size:12px;color:var(--text2)">CDAC ACTS, Pune · 2019–2020</div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px">Undergraduate</div>
+        <div style="font-family:var(--sans);font-weight:600;font-size:13px;color:var(--text)">B.E. Mechanical Engineering</div>
+        <div style="font-size:12px;color:var(--text2)">KDK College of Engineering, Nagpur · 2013–2018</div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px">In Progress</div>
+        <div style="font-family:var(--sans);font-weight:600;font-size:13px;color:var(--text)">Microsoft Azure APIM & Serverless</div>
+        <div style="font-size:12px;color:var(--text2)">Expected 2025</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GUIDE TEASER -->
+<section id="guide">
+  <div class="container">
+    <div class="sec-label reveal">Community</div>
+    <h2 class="sec-title reveal">A guide built from <em>5 years of real work</em></h2>
+    <div class="guide-card reveal">
+      <div class="guide-deco"></div>
+      <div class="guide-badge">
+        <span class="guide-badge-dot"></span>
+        COMING SOON
+      </div>
+      <div class="guide-title">The Integration Engineer's<br><em>Interview Playbook</em></div>
+      <p class="guide-desc">
+        After 5 years in integration engineering — 3 of them in Axway handling 100M+ requests a day —
+        I built the resource I wished existed when preparing for senior roles.
+        100 questions, 100 key terms, a 10-week study plan. Free. No paywall.
+      </p>
+      <div class="guide-stats">
+        <div class="gs"><div class="gs-n">100</div><div class="gs-l">Questions, 5 Tiers</div></div>
+        <div class="gs"><div class="gs-n">100</div><div class="gs-l">Key Terms</div></div>
+        <div class="gs"><div class="gs-n">10wk</div><div class="gs-l">Study Plan</div></div>
+        <div class="gs"><div class="gs-n">Free</div><div class="gs-l">No Paywall</div></div>
+      </div>
+      <div class="guide-coming">
+        <span class="coming-dot"></span>
+        Publishing soon — follow on LinkedIn to be notified first
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-label reveal">Get In Touch</div>
+    <h2 class="sec-title reveal">Open to the <em>right opportunity</em></h2>
+    <div class="contact-grid">
+      <div class="contact-text reveal">
+        <p>
+          I'm looking for roles where <strong>API gateway engineering, integration architecture,
+          and production ownership</strong> are at the core — not an afterthought.
+        </p>
+        <br>
+        <p>
+          If you need someone who has <strong>reduced latency by 83% in production,
+          owned complex partner integrations end-to-end, and hardened
+          OAuth2 and mTLS policies handling 100M+ daily requests</strong> —
+          I'd like to hear about what you're building.
+        </p>
+        <br>
+        <p style="font-size:13px;margin-top:.5rem">
+          <strong>Open to:</strong> On-site · Hybrid · Remote<br>
+          <strong>Locations:</strong> Nagpur + 4 more cities<br>
+          <strong>Availability:</strong> <span style="color:var(--green)">Immediate</span>
+        </p>
+      </div>
+      <div class="contact-links reveal">
+        <a href="https://in.linkedin.com/in/aditya-ghugul-34a541100" target="_blank" class="contact-link">
+          <div class="cl-icon" style="background:rgba(0,119,181,.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0077b5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div>
+            <div class="cl-label">LinkedIn</div>
+            <div class="cl-value">aditya-ghugul-34a541100</div>
+          </div>
+        </a>
+        <a href="mailto:aghugul@gmail.com" class="contact-link">
+          <div class="cl-icon" style="background:rgba(45,212,191,.1)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="cl-label">Email</div>
+            <div class="cl-value">aghugul@gmail.com</div>
+          </div>
+        </a>
+        <a href="tel:+918956983654" class="contact-link">
+          <div class="cl-icon" style="background:rgba(74,222,128,.1)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.15 2.18 2 2 0 012.13 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.34 7.6a16 16 0 006.06 6.06l.96-.96a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="cl-label">Phone</div>
+            <div class="cl-value">+91 89569 83654</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span>Aditya Ghugul</span> · API Integration Engineer · Nagpur, India<br>
+      <span style="color:var(--text3);font-size:10px">aghugul@gmail.com · +91 89569 83654</span>
+    </div>
+    <div class="footer-right">
+      <a href="#hero">Top</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#guide">Guide</a>
+      <a href="https://in.linkedin.com/in/aditya-ghugul-34a541100" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX - 3 + 'px';
+  cursor.style.top = e.clientY - 3 + 'px';
+});
+document.addEventListener('mousedown', () => cursor.style.transform = 'scale(2.5)');
+document.addEventListener('mouseup', () => cursor.style.transform = 'scale(1)');
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => observer.observe(el));
+
+// Stagger skill cards
+document.querySelectorAll('.skill-card').forEach((c, i) => {
+  c.style.transitionDelay = (i * 0.07) + 's';
+});
+
+// LinkedIn badge fallback
+setTimeout(() => {
+  const fallback = document.getElementById('li-fallback');
+  const badge = document.querySelector('.LI-profile-badge');
+  if(badge && badge.children.length > 2 && fallback) {
+    fallback.style.display = 'none';
+  }
+}, 3000);
+</script>
+</body>
+</html>
